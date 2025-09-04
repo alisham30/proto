@@ -90,11 +90,6 @@ export default function LandingPage() {
               View Dashboard
             </Button>
           </Link>
-          <Link href="/about">
-            <Button size="lg" variant="outline">
-              About Project
-            </Button>
-          </Link>
         </div>
 
         {/* Interactive India Map Section */}
