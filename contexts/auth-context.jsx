@@ -68,19 +68,20 @@ export function AuthProvider({ children }) {
       // Simulate API call delay
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
-      const user = mockUsers[email]
-
-      if (!user || user.password !== password || user.role !== role) {
-        throw new Error("Invalid credentials or role mismatch")
+      // Accept any email and password combination
+      const user = {
+        id: "demo_user",
+        email: email,
+        role: role || "admin",
+        name: email.split('@')[0].replace(/[._]/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+        department: "Demo Department",
+        permissions: ["read", "write", "delete", "manage_users", "view_reports", "export_data"],
       }
 
-      // Remove password from user object before storing
-      const { password: _, ...userWithoutPassword } = user
+      setUser(user)
+      localStorage.setItem("fra_user", JSON.stringify(user))
 
-      setUser(userWithoutPassword)
-      localStorage.setItem("fra_user", JSON.stringify(userWithoutPassword))
-
-      return { success: true, user: userWithoutPassword }
+      return { success: true, user: user }
     } catch (error) {
       return { success: false, error: error.message }
     }

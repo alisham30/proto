@@ -215,7 +215,6 @@ export default function DigitizationPage() {
                       <TableHead>Claim Type</TableHead>
                       <TableHead>Area</TableHead>
                       <TableHead>Status</TableHead>
-                      <TableHead>Confidence</TableHead>
                       <TableHead>Actions</TableHead>
                     </TableRow>
                   </TableHeader>
@@ -270,20 +269,6 @@ export default function DigitizationPage() {
                           <Badge className={statusColors[item.status] || "bg-gray-100 text-gray-800"}>
                             {item.status}
                           </Badge>
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex items-center space-x-1">
-                            <span className="text-sm">{item.confidence}%</span>
-                            <div
-                              className={`w-2 h-2 rounded-full ${
-                                item.confidence >= 90
-                                  ? "bg-green-500"
-                                  : item.confidence >= 75
-                                    ? "bg-yellow-500"
-                                    : "bg-red-500"
-                              }`}
-                            ></div>
-                          </div>
                         </TableCell>
                         <TableCell>
                           <div className="flex space-x-1">
@@ -352,19 +337,6 @@ export default function DigitizationPage() {
                     {extractedData.filter((item) => item.status === "Pending Review").length}
                   </p>
                   <p className="text-sm text-gray-600">Pending Review</p>
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-4">
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-gray-600">
-                    {Math.round(
-                      extractedData.reduce((sum, item) => sum + item.confidence, 0) / extractedData.length || 0,
-                    )}
-                    %
-                  </p>
-                  <p className="text-sm text-gray-600">Avg Confidence</p>
                 </div>
               </CardContent>
             </Card>

@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Search, Send, Phone, Video, MoreVertical, ArrowLeft, Paperclip, Smile } from "lucide-react"
+import { Search, Send, Phone, MoreVertical, ArrowLeft, Paperclip, Smile } from "lucide-react"
 import Link from "next/link"
 
 const dummyNGOs = [
@@ -506,9 +506,6 @@ export default function CommunicationPortal() {
               <div className="flex items-center space-x-2">
                 <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 p-2 rounded-full transition-all duration-200">
                   <Phone className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 p-2 rounded-full transition-all duration-200">
-                  <Video className="h-4 w-4" />
                 </Button>
                 <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 p-2 rounded-full transition-all duration-200">
                   <MoreVertical className="h-4 w-4" />

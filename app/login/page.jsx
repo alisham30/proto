@@ -101,15 +101,28 @@ export default function LoginPage() {
             )}
 
             <form onSubmit={handleLogin} className="space-y-4">
+              {/* Demo Credentials Box */}
+              <div className="p-2 bg-gradient-to-r from-orange-200 via-yellow-200 to-pink-200 border border-orange-400 rounded shadow-md">
+                <div className="text-center">
+                  <p className="text-sm font-bold text-orange-800 mb-1">🔐 DEMO CREDENTIALS</p>
+                  <p className="text-xs font-bold text-white mb-1 bg-gradient-to-r from-red-600 to-pink-600 px-2 py-1 rounded border border-red-800 animate-pulse">
+                    ⚠️ Sign in below using ONLY these credentials:
+                  </p>
+                  <div className="bg-gradient-to-r from-yellow-100 to-orange-100 p-2 rounded border border-yellow-400">
+                    <p className="font-bold text-sm text-orange-900 mb-0.5">📧 Email: admin@fra.gov.in</p>
+                    <p className="font-bold text-sm text-orange-900">🔑 Password: admin123</p>
+                  </div>
+                </div>
+              </div>
+
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email" className="text-base font-semibold">Email</Label>
                 <Input
                   id="email"
-                  type="email"
+                  type="text"
                   placeholder="Enter your admin email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  required
                   disabled={loading}
                 />
               </div>
@@ -122,7 +135,6 @@ export default function LoginPage() {
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  required
                   disabled={loading}
                 />
               </div>
@@ -281,11 +293,6 @@ export default function LoginPage() {
               </Link>
             </div>
 
-            <div className="mt-4 p-3 bg-gray-50 rounded-lg">
-              <p className="text-xs text-gray-600 mb-2">Demo Admin Credentials:</p>
-              <p className="text-xs text-gray-800">Email: admin@fra.gov.in</p>
-              <p className="text-xs text-gray-800">Password: admin123</p>
-            </div>
           </CardContent>
         </Card>
       </div>
